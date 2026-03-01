@@ -1,0 +1,135 @@
+/* ── Base Styles ─────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f172a;   /* dark navy background */
+  color: #e2e8f0;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #38bdf8;  /* sky blue */
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #94a3b8;
+  margin-bottom: 2rem;
+}
+
+/* ── Cards ───────────────────────────────── */
+/* Each section is wrapped in a card */
+.card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Form Elements ───────────────────────── */
+label { display: block; margin-bottom: 0.5rem; color: #94a3b8; }
+
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  background: #0284c7;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+button:hover { background: #0369a1; }
+
+/* ── Result Card ──────────────────────────── */
+.result-card {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* ── Risk Score Circle ───────────────────── */
+/* The big number circle — color changes based on risk level */
+.risk-score-circle {
+  min-width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+  border: 4px solid #334155;
+}
+
+.risk-score-circle span { line-height: 1; }
+.risk-score-circle small { font-size: 0.9rem; color: #94a3b8; }
+
+/* Risk level colors */
+.risk-HIGH    { border-color: #ef4444; background: #450a0a; color: #fca5a5; }
+.risk-MODERATE{ border-color: #f59e0b; background: #451a03; color: #fcd34d; }
+.risk-LOW     { border-color: #22c55e; background: #052e16; color: #86efac; }
+
+/* ── Badge ───────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin: 0.5rem 0;
+}
+
+.badge-HIGH     { background: #450a0a; color: #fca5a5; }
+.badge-MODERATE { background: #451a03; color: #fcd34d; }
+.badge-LOW      { background: #052e16; color: #86efac; }
+
+/* ── Weather Row ─────────────────────────── */
+.weather-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+/* ── Table ───────────────────────────────── */
+table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+th { text-align: left; padding: 0.75rem; color: #94a3b8; border-bottom: 1px solid #334155; }
+td { padding: 0.75rem; border-bottom: 1px solid #1e293b; }
+tr:hover td { background: #1e293b; }
+
+/* ── Utility ─────────────────────────────── */
+.hidden { display: none; }
+
+#loading {
+  text-align: center;
+  padding: 1rem;
+  color: #94a3b8;
+  font-size: 1.1rem;
+}

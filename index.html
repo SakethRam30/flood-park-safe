@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FloodPark Hoboken — Risk Checker</title>
+  <link rel="stylesheet" href__="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>🌊 FloodPark Hoboken</h1>
+    <p class="subtitle">Real-time flood risk checker powered by Random Forest ML</p>
+
+    <!-- ── INPUT SECTION ───────────────────────────── -->
+    <div class="card">
+      <label for="streetSelect">Select a Street</label>
+      <select id="streetSelect">
+        <option value="">-- Loading streets... --</option>
+      </select>
+      <button id="checkBtn" onclick="checkRisk()">Check Risk</button>
+    </div>
+
+    <!-- ── LOADING SPINNER ──────────────────────────── -->
+    <div id="loading" class="hidden">
+      ⏳ Fetching live weather & running ML model...
+    </div>
+
+    <!-- ── RESULT CARD ──────────────────────────────── -->
+    <div id="result" class="hidden card result-card">
+      <div class="risk-score-circle" id="scoreCircle">
+        <span id="scoreNumber">--</span>
+        <small>/100</small>
+      </div>
+      <div class="result-details">
+        <h2 id="streetName"></h2>
+        <div class="badge" id="riskBadge"></div>
+        <p id="advice"></p>
+        <div class="weather-row">
+          <span>🌡️ <span id="temp"></span>°F</span>
+          <span>💧 <span id="rain"></span> in/hr</span>
+          <span>💨 <span id="wind"></span> mph</span>
+          <span>📍 Elevation: <span id="elevation"></span> ft</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ALL STREETS TABLE ────────────────────────── -->
+    <div class="card">
+      <h2>All Streets — Current Risk</h2>
+      <button onclick="loadAllRisks()">🔄 Load All Streets</button>
+      <table id="allRisksTable" class="hidden">
+        <thead>
+          <tr>
+            <th>Street</th>
+            <th>Risk Score</th>
+            <th>Level</th>
+            <th>Elevation</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- ── SIMULATION SECTION ───────────────────────── -->
+    <div class="card">
+      <h2>🌩️ Storm Simulator</h2>
+      <p class="subtitle" style="margin-bottom:1rem">
+        See how each street performs under different weather events
+      </p>
+
+      <div id="scenarioButtons" style="display:flex; flex-wrap:wrap; gap:0.75rem; margin-bottom:1rem">
+        <!-- Filled by JavaScript -->
+      </div>
+
+      <div id="simLoading" class="hidden">⏳ Running simulation...</div>
+
+      <div id="simResult" class="hidden">
+        <div id="simHeader" style="margin-bottom:1rem"></div>
+        <table>
+          <thead>
+            <tr>
+              <th>Street</th>
+              <th>Risk Score</th>
+              <th>Level</th>
+              <th>Elevation</th>
+            </tr>
+          </thead>
+          <tbody id="simTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- end .container -->
+
+  <script src="script.js"></script>
+</body>
+</html>
